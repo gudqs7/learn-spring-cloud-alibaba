@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: spring-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    sentinel:
+      transport:
+        port: 8721
+        dashboard: localhost:8080
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: NACOS-CONSUMER
+          uri: lb://hello-consumer
+          predicates:
+            - Method=GET,POST
+          filters:
+            - AddRequestParameter=age, 99
+
+server:
+  port: 9000
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug

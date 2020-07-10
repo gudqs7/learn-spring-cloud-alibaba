@@ -29,6 +29,7 @@
     <modules>
         <module>cloud-alibaba-service-provider</module>
         <module>cloud-alibaba-service-consumer</module>
+        <module>cloud-alibaba-gateway</module>
     </modules>
 
     <dependencyManagement>
